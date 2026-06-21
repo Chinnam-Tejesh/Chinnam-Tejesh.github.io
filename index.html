@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chinnam Tejesh - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        header {
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        header p {
+            font-size: 1.1rem;
+            color: #667eea;
+        }
+        
+        nav {
+            background: rgba(0, 0, 0, 0.95);
+            padding: 1rem;
+            text-align: center;
+            sticky: true;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #667eea;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        section {
+            background: white;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        section h2 {
+            color: #667eea;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 0.5rem;
+        }
+        
+        .project {
+            background: #f4f4f4;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-left: 5px solid #667eea;
+            border-radius: 5px;
+        }
+        
+        .project h3 {
+            color: #764ba2;
+            margin-bottom: 0.5rem;
+        }
+        
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .skill-tag {
+            background: #667eea;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        footer {
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Chinnam Tejesh</h1>
+        <p>Full-Stack Developer | Problem Solver | Tech Enthusiast</p>
+    </header>
+    
+    <!-- Navigation -->
+    <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Welcome to my portfolio! I'm a passionate developer focused on building scalable and user-friendly applications. I love working with modern technologies and solving complex problems.</p>
+        </section>
+        
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2>Projects</h2>
+            
+            <div class="project">
+                <h3>Project 1</h3>
+                <p>Description of your first project goes here. Talk about what technologies you used and the impact it had.</p>
+            </div>
+            
+            <div class="project">
+                <h3>Project 2</h3>
+                <p>Description of your second project goes here. Highlight key features and achievements.</p>
+            </div>
+            
+            <div class="project">
+                <h3>Project 3</h3>
+                <p>Description of your third project goes here. Share what you learned and challenges you overcame.</p>
+            </div>
+        </section>
+        
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="skills">
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">HTML/CSS</span>
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Git</span>
+                <span class="skill-tag">Docker</span>
+                <span class="skill-tag">SQL</span>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Get In Touch</h2>
+            <p>Feel free to reach out to me on:</p>
+            <ul style="margin-top: 1rem; margin-left: 2rem;">
+                <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+                <li><a href="https://github.com" target="_blank">GitHub</a></li>
+                <li><a href="mailto:your.email@example.com">Email</a></li>
+            </ul>
+        </section>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Chinnam Tejesh. All rights reserved. | <a href="#top">Back to Top</a></p>
+    </footer>
+</body>
+</html>

@@ -1,1 +1,0 @@
-# Chinnam-Tejesh.github.io
