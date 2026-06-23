@@ -103,15 +103,18 @@
             border-bottom: 1px solid var(--border);
             backdrop-filter: blur(10px);
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
         }
         
         nav a {
             color: var(--muted);
             text-decoration: none;
-            margin: 0 1.5rem;
+            margin: 0 1rem;
             transition: all 0.3s ease;
             font-weight: 500;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             position: relative;
         }
 
@@ -167,12 +170,31 @@
             font-size: 1.8rem;
             font-weight: 700;
             letter-spacing: 0.02em;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            user-select: none;
         }
 
         section h2::before {
             content: '$ ';
             color: var(--accent-2);
             margin-right: 0.5rem;
+        }
+
+        .toggle-icon {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+            color: var(--accent-2);
+        }
+
+        section.collapsed .toggle-icon {
+            transform: rotate(-90deg);
+        }
+
+        section.collapsed .section-content {
+            display: none;
         }
         
         section h3 {
@@ -184,7 +206,10 @@
         }
         
         .experience-item,
-        .project-item {
+        .project-item,
+        .education-item,
+        .research-item,
+        .certificate-item {
             background: linear-gradient(135deg, rgba(15, 23, 42, 0.5) 0%, rgba(22, 48, 74, 0.3) 100%);
             padding: 1.5rem;
             margin-bottom: 1.5rem;
@@ -195,7 +220,10 @@
         }
 
         .experience-item:hover,
-        .project-item:hover {
+        .project-item:hover,
+        .education-item:hover,
+        .research-item:hover,
+        .certificate-item:hover {
             border-left-color: var(--accent-2);
             border-color: var(--accent);
             background: linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(22, 48, 74, 0.5) 100%);
@@ -203,21 +231,30 @@
         }
         
         .experience-item h3,
-        .project-item h3 {
+        .project-item h3,
+        .education-item h3,
+        .research-item h3,
+        .certificate-item h3 {
             color: var(--accent);
             margin-bottom: 0.3rem;
             font-weight: 600;
         }
         
-        .role-title {
+        .role-title,
+        .company-name,
+        .degree-name,
+        .school-name {
             font-weight: 700;
             color: var(--text);
         }
         
-        .company-name {
+        .company-name,
+        .school-name {
             color: var(--muted);
             font-style: italic;
             font-weight: 500;
+            display: block;
+            margin-top: 0.3rem;
         }
         
         .project-tech {
@@ -313,7 +350,7 @@
             font-weight: 400;
         }
         
-        .summary {
+        .intro-card {
             background: linear-gradient(135deg, rgba(96, 165, 250, 0.1) 0%, rgba(52, 211, 153, 0.05) 100%);
             padding: 2rem;
             border-radius: 8px;
@@ -321,9 +358,33 @@
             border: 1px solid var(--accent);
         }
 
-        .summary p {
+        .intro-card h3 {
+            margin-top: 0;
+        }
+
+        .intro-card p {
             color: var(--text);
             line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .intro-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .intro-links a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .intro-links a:hover {
+            color: var(--accent-2);
+            transform: translateX(4px);
         }
 
         /* Contact List Styling */
@@ -352,14 +413,22 @@
             font-weight: 600;
         }
 
+        .section-content {
+            transition: all 0.3s ease;
+        }
+
         @media (max-width: 768px) {
             header h1 {
                 font-size: 1.8rem;
             }
             
+            nav {
+                padding: 1rem;
+            }
+
             nav a {
-                margin: 0 0.8rem;
-                font-size: 0.85rem;
+                margin: 0.3rem 0.5rem;
+                font-size: 0.8rem;
             }
             
             .container {
@@ -370,8 +439,12 @@
                 padding: 1.5rem;
             }
 
-            nav {
-                padding: 1rem;
+            section h2 {
+                font-size: 1.4rem;
+            }
+
+            .intro-links {
+                flex-direction: column;
             }
         }
 
@@ -404,171 +477,308 @@
         
         <!-- Navigation -->
         <nav>
-            <a href="#professional-summary">Summary</a>
+            <a href="#introduction">Introduction</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
             <a href="#experience">Experience</a>
-            <a href="#projects">Verification Projects</a>
-            <a href="#skills">Technical Skills</a>
-            <a href="#contact">Contact</a>
+            <a href="#education">Education</a>
+            <a href="#research">Research</a>
+            <a href="#certificates">Certificates</a>
+            <a href="#interests">Interests</a>
         </nav>
         
         <!-- Main Content -->
         <div class="container">
             
-            <!-- Professional Summary -->
-            <section id="professional-summary" class="summary">
-                <h2>Professional Summary</h2>
-                <p>Motivated VLSI Frontend Verification Engineer with expertise in design verification, testbench development, and functional validation of digital designs. Proficient in SystemVerilog, UVM, and formal verification methodologies. Passionate about catching bugs early and ensuring design quality through comprehensive verification strategies.</p>
-            </section>
-            
-            <!-- Experience Section -->
-            <section id="experience">
-                <h2>Experience</h2>
-                
-                <div class="experience-item">
-                    <h3><span class="role-title">Verification Engineer / Senior Verification Engineer</span></h3>
-                    <p><span class="company-name">[Company Name]</span> | <span class="date">[Start Date] - [End Date]</span></p>
-                    <ul>
-                        <li>Developed and executed comprehensive verification plans for [Design Block/IP Core] with [Coverage Metric]% code coverage and [Bugs Found] bugs identified pre-silicon</li>
-                        <li>Architected modular SystemVerilog/UVM testbenches achieving [0/1/2] levels of functional coverage</li>
-                        <li>Collaborated with design team to resolve corner cases, improving design quality and reducing verification time by [X%]</li>
-                        <li>Implemented formal verification methods for protocol validation, ensuring RTL compliance to specification</li>
-                        <li>Optimized simulation performance using [Technique/Tool], reducing test execution time by [X%]</li>
-                    </ul>
-                </div>
-                
-                <div class="experience-item">
-                    <h3><span class="role-title">RTL Verification Intern</span></h3>
-                    <p><span class="company-name">[Company Name]</span> | <span class="date">[Start Date] - [End Date]</span></p>
-                    <ul>
-                        <li>Developed testbenches for [Specific Design] using SystemVerilog, achieving [X]% functional coverage</li>
-                        <li>Created test scenarios validating [Protocol/Specification], identifying [X] critical design issues</li>
-                        <li>Participated in verification closure activities including coverage analysis and bug triaging</li>
-                    </ul>
+            <!-- Introduction Section -->
+            <section id="introduction">
+                <h2><span>Introduction</span><span class="toggle-icon">▼</span></h2>
+                <div class="section-content">
+                    <div class="intro-card">
+                        <h3>Chinnam Tejesh</h3>
+                        <p>
+                            Motivated VLSI Frontend Verification Engineer with expertise in design verification, testbench development, and functional validation of digital designs. Proficient in SystemVerilog, UVM, and formal verification methodologies. Passionate about building robust verification frameworks and ensuring high-quality silicon through comprehensive testing strategies.
+                        </p>
+                        <div class="intro-links">
+                            <span><strong>Email:</strong> <a href="mailto:tejesh.chinnam@example.com">tejesh.chinnam@example.com</a></span>
+                            <span><strong>GitHub:</strong> <a href="https://github.com/Chinnam-Tejesh" target="_blank">github.com/Chinnam-Tejesh</a></span>
+                            <span><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/chinnam-tejesh" target="_blank">linkedin.com/in/chinnam-tejesh</a></span>
+                            <span><strong>Location:</strong> [Your Location]</span>
+                        </div>
+                    </div>
                 </div>
             </section>
-            
-            <!-- Projects Section -->
-            <section id="projects">
-                <h2>Verification Projects</h2>
-                
-                <div class="project-item">
-                    <h3>Design Block/IP Verification</h3>
-                    <p class="project-tech">SystemVerilog | UVM | [Simulator Tool] | Coverage Analysis</p>
-                    <ul>
-                        <li>Designed and implemented UVM testbench environment for [Design Block] with functional coverage of [%]</li>
-                        <li>Created constrained random test generation achieving [X] corner cases identification</li>
-                        <li>Documented verification methodology, test results, and coverage metrics in comprehensive verification report</li>
-                    </ul>
-                </div>
-                
-                <div class="project-item">
-                    <h3>Protocol Verification / Interface Validation</h3>
-                    <p class="project-tech">SystemVerilog | Protocol Checkers | Formal Verification | [Tool Name]</p>
-                    <ul>
-                        <li>Verified [Protocol Name] interface compliance against specification using protocol checkers</li>
-                        <li>Implemented formal property checking for [Critical Property], ensuring correctness</li>
-                        <li>Identified and documented [X] specification violations, contributing to design refinement</li>
-                    </ul>
-                </div>
-                
-                <div class="project-item">
-                    <h3>Testbench Development / Framework</h3>
-                    <p class="project-tech">SystemVerilog | UVM | Reusable Components | Automation</p>
-                    <ul>
-                        <li>Built scalable, reusable UVM testbench components for [Design Type], enabling faster test development</li>
-                        <li>Automated test execution and regression suite management using [Tool/Script], reducing manual effort</li>
-                        <li>Established coding standards and best practices improving team productivity by [X%]</li>
-                    </ul>
-                </div>
-            </section>
-            
+
             <!-- Skills Section -->
             <section id="skills">
-                <h2>Technical Skills</h2>
-                
-                <div class="skill-category">
-                    <h4>Hardware Description & Verification Languages</h4>
-                    <div class="skills-container">
-                        <span class="skill-tag">SystemVerilog</span>
-                        <span class="skill-tag">Verilog</span>
-                        <span class="skill-tag">VHDL</span>
-                        <span class="skill-tag">System Verilog Assertions (SVA)</span>
+                <h2><span>Technical Skills</span><span class="toggle-icon">▼</span></h2>
+                <div class="section-content">
+                    
+                    <div class="skill-category">
+                        <h4>Hardware Description & Verification Languages (HDL)</h4>
+                        <div class="skills-container">
+                            <span class="skill-tag">SystemVerilog</span>
+                            <span class="skill-tag">Verilog</span>
+                            <span class="skill-tag">VHDL</span>
+                            <span class="skill-tag">System Verilog Assertions (SVA)</span>
+                            <span class="skill-tag">E Language</span>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h4>Verification Methodologies & Frameworks</h4>
-                    <div class="skills-container">
-                        <span class="skill-tag">UVM</span>
-                        <span class="skill-tag">OVM</span>
-                        <span class="skill-tag">Testbench Architecture</span>
-                        <span class="skill-tag">Constrained Random Testing</span>
-                        <span class="skill-tag">Coverage-Driven Verification</span>
+                    
+                    <div class="skill-category">
+                        <h4>Verification Methodologies & Frameworks</h4>
+                        <div class="skills-container">
+                            <span class="skill-tag">UVM (Universal Verification Methodology)</span>
+                            <span class="skill-tag">OVM (Open Verification Methodology)</span>
+                            <span class="skill-tag">Testbench Architecture</span>
+                            <span class="skill-tag">Constrained Random Testing</span>
+                            <span class="skill-tag">Coverage-Driven Verification</span>
+                            <span class="skill-tag">Formal Verification</span>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h4>Design Protocols & Standards</h4>
-                    <div class="skills-container">
-                        <span class="skill-tag">AMBA (AXI/AHB)</span>
-                        <span class="skill-tag">PCIe</span>
-                        <span class="skill-tag">Ethernet</span>
-                        <span class="skill-tag">USB</span>
-                        <span class="skill-tag">I2C/SPI</span>
+
+                    <div class="skill-category">
+                        <h4>Programming & Scripting Languages</h4>
+                        <div class="skills-container">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Perl</span>
+                            <span class="skill-tag">Bash/Shell</span>
+                            <span class="skill-tag">Tcl</span>
+                            <span class="skill-tag">C/C++</span>
+                            <span class="skill-tag">MATLAB</span>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h4>Simulation & Formal Verification Tools</h4>
-                    <div class="skills-container">
-                        <span class="skill-tag">VCS</span>
-                        <span class="skill-tag">ModelSim/QuestaSim</span>
-                        <span class="skill-tag">Cadence Xcelium</span>
-                        <span class="skill-tag">Formal Verification</span>
-                        <span class="skill-tag">Coverage Analysis</span>
+
+                    <div class="skill-category">
+                        <h4>Design Protocols & Standards</h4>
+                        <div class="skills-container">
+                            <span class="skill-tag">AMBA (AXI/AHB)</span>
+                            <span class="skill-tag">PCIe</span>
+                            <span class="skill-tag">Ethernet</span>
+                            <span class="skill-tag">USB</span>
+                            <span class="skill-tag">I2C/SPI</span>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h4>Design & Analysis Tools</h4>
-                    <div class="skills-container">
-                        <span class="skill-tag">Vivado</span>
-                        <span class="skill-tag">Synopsys Design Compiler</span>
-                        <span class="skill-tag">Static Analysis</span>
-                        <span class="skill-tag">Debugging & Waveform Analysis</span>
+                    
+                    <div class="skill-category">
+                        <h4>Simulation & Formal Verification Tools</h4>
+                        <div class="skills-container">
+                            <span class="skill-tag">VCS</span>
+                            <span class="skill-tag">ModelSim/QuestaSim</span>
+                            <span class="skill-tag">Cadence Xcelium</span>
+                            <span class="skill-tag">JasperGold</span>
+                            <span class="skill-tag">Synopsys VC Formal</span>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h4>Programming & Scripting Languages</h4>
-                    <div class="skills-container">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Perl</span>
-                        <span class="skill-tag">Bash/Shell</span>
-                        <span class="skill-tag">Tcl</span>
-                        <span class="skill-tag">C/C++</span>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h4>Version Control & Development Practices</h4>
-                    <div class="skills-container">
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">SVN</span>
-                        <span class="skill-tag">Continuous Integration</span>
-                        <span class="skill-tag">Agile/Scrum</span>
+                    
+                    <div class="skill-category">
+                        <h4>Design & Analysis Tools</h4>
+                        <div class="skills-container">
+                            <span class="skill-tag">Vivado</span>
+                            <span class="skill-tag">Synopsys Design Compiler</span>
+                            <span class="skill-tag">Static Analysis</span>
+                            <span class="skill-tag">Debugging & Waveform Analysis</span>
+                            <span class="skill-tag">Git/SVN</span>
+                        </div>
                     </div>
                 </div>
             </section>
-            
-            <!-- Contact Section -->
-            <section id="contact">
-                <h2>Contact Information</h2>
-                <ul>
-                    <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/[username]" target="_blank">linkedin.com/in/[username]</a></li>
-                    <li><strong>GitHub:</strong> <a href="https://github.com/[username]" target="_blank">github.com/[username]</a></li>
-                    <li><strong>Email:</strong> <a href="mailto:[your.email@example.com]">[your.email@example.com]</a></li>
-                </ul>
+
+            <!-- Projects Section -->
+            <section id="projects">
+                <h2><span>Verification Projects</span><span class="toggle-icon">▼</span></h2>
+                <div class="section-content">
+                    
+                    <div class="project-item">
+                        <h3>Design Block/IP Verification</h3>
+                        <p class="project-tech">SystemVerilog | UVM | VCS | Coverage Analysis</p>
+                        <p><span class="date">[Start Date] - [End Date]</span></p>
+                        <ul>
+                            <li>Designed and implemented UVM testbench environment for [Design Block] with functional coverage of [X]%</li>
+                            <li>Created constrained random test generation achieving [X] corner cases identification</li>
+                            <li>Documented verification methodology, test results, and coverage metrics in comprehensive verification report</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="project-item">
+                        <h3>Protocol Verification / Interface Validation</h3>
+                        <p class="project-tech">SystemVerilog | Protocol Checkers | Formal Verification | JasperGold</p>
+                        <p><span class="date">[Start Date] - [End Date]</span></p>
+                        <ul>
+                            <li>Verified [Protocol Name] interface compliance against specification using protocol checkers</li>
+                            <li>Implemented formal property checking for [Critical Property], ensuring correctness</li>
+                            <li>Identified and documented [X] specification violations, contributing to design refinement</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="project-item">
+                        <h3>Testbench Development / Framework</h3>
+                        <p class="project-tech">SystemVerilog | UVM | Reusable Components | Automation</p>
+                        <p><span class="date">[Start Date] - [End Date]</span></p>
+                        <ul>
+                            <li>Built scalable, reusable UVM testbench components for [Design Type], enabling faster test development</li>
+                            <li>Automated test execution and regression suite management using [Tool/Script], reducing manual effort</li>
+                            <li>Established coding standards and best practices improving team productivity by [X]%</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Experience Section -->
+            <section id="experience">
+                <h2><span>Professional Experience</span><span class="toggle-icon">▼</span></h2>
+                <div class="section-content">
+                    
+                    <div class="experience-item">
+                        <h3>Senior Verification Engineer</h3>
+                        <span class="company-name">[Company Name]</span>
+                        <p><span class="date">[Start Date] - [End Date] | [Location]</span></p>
+                        <ul>
+                            <li>Developed and executed comprehensive verification plans for [Design Block/IP Core] with [X]% code coverage and [Y] bugs identified pre-silicon</li>
+                            <li>Architected modular SystemVerilog/UVM testbenches achieving [Level] of functional coverage</li>
+                            <li>Collaborated with design team to resolve corner cases, improving design quality and reducing verification time by [X]%</li>
+                            <li>Implemented formal verification methods for protocol validation, ensuring RTL compliance to specification</li>
+                            <li>Optimized simulation performance using [Technique/Tool], reducing test execution time by [X]%</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <h3>Verification Engineer</h3>
+                        <span class="company-name">[Company Name]</span>
+                        <p><span class="date">[Start Date] - [End Date] | [Location]</span></p>
+                        <ul>
+                            <li>Developed and executed comprehensive verification plans for [Design Block/IP Core] with [X]% code coverage and [Y] bugs identified pre-silicon</li>
+                            <li>Architected modular SystemVerilog/UVM testbenches achieving [Level] of functional coverage</li>
+                            <li>Collaborated with design team to resolve corner cases, improving design quality and reducing verification time by [X]%</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <h3>RTL Verification Intern</h3>
+                        <span class="company-name">[Company Name]</span>
+                        <p><span class="date">[Start Date] - [End Date] | [Location]</span></p>
+                        <ul>
+                            <li>Developed testbenches for [Specific Design] using SystemVerilog, achieving [X]% functional coverage</li>
+                            <li>Created test scenarios validating [Protocol/Specification], identifying [X] critical design issues</li>
+                            <li>Participated in verification closure activities including coverage analysis and bug triaging</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Education Section -->
+            <section id="education">
+                <h2><span>Education & Academics</span><span class="toggle-icon">▼</span></h2>
+                <div class="section-content">
+                    
+                    <div class="education-item">
+                        <h3>Master of Technology (M.Tech) in VLSI Design</h3>
+                        <span class="school-name">[University Name]</span>
+                        <p><span class="date">[Graduation Date] | CGPA: [X.XX]/10</span></p>
+                        <ul>
+                            <li>Specialized in Digital VLSI Design and Verification</li>
+                            <li>Key Coursework: Advanced Digital Design, Verification Methodologies, ASIC Design Flow, Formal Methods</li>
+                            <li>Thesis: [Thesis Title] - Focused on [Key Topic]</li>
+                        </ul>
+                    </div>
+
+                    <div class="education-item">
+                        <h3>Bachelor of Technology (B.Tech) in Electronics & Communication Engineering</h3>
+                        <span class="school-name">[University Name]</span>
+                        <p><span class="date">[Graduation Date] | CGPA: [X.XX]/10</span></p>
+                        <ul>
+                            <li>Key Coursework: Digital Design, Logic Systems, Microprocessors, Embedded Systems</li>
+                            <li>Project: [Project Name] - [Brief Description]</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Research & Publications Section -->
+            <section id="research">
+                <h2><span>Research & Publications</span><span class="toggle-icon">▼</span></h2>
+                <div class="section-content">
+                    
+                    <div class="research-item">
+                        <h3>Published Paper: [Paper Title]</h3>
+                        <p class="project-tech">Conference/Journal | [Conference/Journal Name]</p>
+                        <p><span class="date">[Publication Date]</span></p>
+                        <ul>
+                            <li>Authors: [Your Name], [Co-authors]</li>
+                            <li>Abstract: [Brief description of the research]</li>
+                            <li>Key Contributions: [Main contributions of the work]</li>
+                            <li><a href="#" target="_blank">View Publication</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="research-item">
+                        <h3>Research Project: [Project Name]</h3>
+                        <p class="project-tech">Research Area | [Relevant Area]</p>
+                        <p><span class="date">[Start Date] - [End Date]</span></p>
+                        <ul>
+                            <li>Objective: [Research objective]</li>
+                            <li>Methodology: [Research methodology used]</li>
+                            <li>Outcomes: [Key findings and outcomes]</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Certificates & Trainings Section -->
+            <section id="certificates">
+                <h2><span>Certificates & Trainings</span><span class="toggle-icon">▼</span></h2>
+                <div class="section-content">
+                    
+                    <div class="certificate-item">
+                        <h3>UVM Methodology Training</h3>
+                        <p class="project-tech">Certification | [Training Provider]</p>
+                        <p><span class="date">[Date Completed]</span></p>
+                        <ul>
+                            <li>Comprehensive training in UVM 1.2 methodology and best practices</li>
+                            <li>Focus on testbench architecture, sequencer design, and coverage metrics</li>
+                            <li><a href="#" target="_blank">View Certificate</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="certificate-item">
+                        <h3>Formal Verification Course</h3>
+                        <p class="project-tech">Course | [Training Provider]</p>
+                        <p><span class="date">[Date Completed]</span></p>
+                        <ul>
+                            <li>In-depth training on formal verification techniques and tools</li>
+                            <li>Hands-on experience with property checking and proof strategies</li>
+                            <li><a href="#" target="_blank">View Certificate</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="certificate-item">
+                        <h3>Advanced SystemVerilog Workshop</h3>
+                        <p class="project-tech">Workshop | [Training Provider]</p>
+                        <p><span class="date">[Date Completed]</span></p>
+                        <ul>
+                            <li>Advanced SystemVerilog programming and debugging techniques</li>
+                            <li>Deep dive into assertions, coverage, and randomization</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Interests Section -->
+            <section id="interests">
+                <h2><span>Interests & Hobbies</span><span class="toggle-icon">▼</span></h2>
+                <div class="section-content">
+                    <div class="intro-card">
+                        <ul>
+                            <li><strong>VLSI & Hardware Design:</strong> Passionate about RTL design, verification methodologies, and formal verification techniques</li>
+                            <li><strong>Open Source Contributions:</strong> Active contributor to VLSI and EDA tool projects on GitHub</li>
+                            <li><strong>Technical Writing:</strong> Enjoy documenting complex verification concepts and sharing knowledge through blogs and technical articles</li>
+                            <li><strong>Competitive Programming:</strong> Regular participant in programming contests, improving problem-solving skills</li>
+                            <li><strong>Gaming & Simulation:</strong> Interested in game development and physics simulation engines</li>
+                            <li><strong>Photography:</strong> Hobbyist photographer with interest in landscape and macro photography</li>
+                            <li><strong>Reading:</strong> Avid reader of technical books, science fiction, and historical narratives</li>
+                        </ul>
+                    </div>
+                </div>
             </section>
         </div>
         
@@ -577,5 +787,15 @@
             <p>&copy; 2026. All rights reserved. | <a href="#top">Back to Top</a></p>
         </footer>
     </div>
+
+    <script>
+        // Expandable sections functionality
+        document.querySelectorAll('section h2').forEach(header => {
+            header.addEventListener('click', function() {
+                const section = this.closest('section');
+                section.classList.toggle('collapsed');
+            });
+        });
+    </script>
 </body>
 </html>
