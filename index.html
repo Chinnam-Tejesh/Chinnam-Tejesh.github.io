@@ -3,9 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="VLSI Frontend Verification Engineer Portfolio">
-    <meta name="keywords" content="VLSI, Verification, RTL, Testbench, SystemVerilog, UVM, Formal Verification, DV">
-    <title>VLSI Frontend Verification Engineer</title>
+    <meta name="description" content="VLSI Frontend Verification Engineer Portfolio - Design Verification, RTL Validation, Testbench Development, Formal Methods">
+    <meta name="keywords" content="VLSI, Verification, RTL, Testbench, SystemVerilog, UVM, Formal Verification, DV, Design Verification">
+    <title>VLSI Frontend Verification Engineer | Chinnam Tejesh</title>
+    <meta name="author" content="Chinnam Tejesh">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Schema.org structured data for better ATS parsing -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org/",
+        "@type": "Person",
+        "name": "Chinnam Tejesh",
+        "url": "https://chinnam-tejesh.github.io",
+        "image": "https://chinnam-tejesh.github.io/profile-image.jpg",
+        "jobTitle": "VLSI Frontend Verification Engineer",
+        "email": "tejesh.chinnam@example.com",
+        "sameAs": [
+            "https://github.com/Chinnam-Tejesh",
+            "https://linkedin.com/in/chinnam-tejesh"
+        ],
+        "description": "Motivated VLSI Frontend Verification Engineer with expertise in design verification, testbench development, and functional validation of digital designs"
+    }
+    </script>
+
     <style>
         :root {
             --bg: #0B1220;
@@ -25,7 +46,7 @@
         }
         
         body {
-            font-family: 'Fira Code', 'Monaco', 'Courier New', monospace;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Code', 'Monaco', 'Courier New', monospace;
             line-height: 1.6;
             color: var(--text);
             background: var(--bg);
@@ -75,16 +96,6 @@
             background-clip: text;
             letter-spacing: 0.05em;
         }
-
-        header h1::before {
-            content: '< ';
-            color: var(--accent);
-        }
-
-        header h1::after {
-            content: ' />';
-            color: var(--accent);
-        }
         
         header p {
             font-size: 1rem;
@@ -117,27 +128,10 @@
             font-size: 0.9rem;
             position: relative;
         }
-
-        nav a::before {
-            content: '[';
-            color: var(--accent);
-            margin-right: 0.3rem;
-        }
-
-        nav a::after {
-            content: ']';
-            color: var(--accent);
-            margin-left: 0.3rem;
-        }
         
         nav a:hover {
             color: var(--accent);
             transform: translateY(-2px);
-        }
-
-        nav a:hover::before,
-        nav a:hover::after {
-            color: var(--accent-2);
         }
         
         .container {
@@ -170,31 +164,6 @@
             font-size: 1.8rem;
             font-weight: 700;
             letter-spacing: 0.02em;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            cursor: pointer;
-            user-select: none;
-        }
-
-        section h2::before {
-            content: '$ ';
-            color: var(--accent-2);
-            margin-right: 0.5rem;
-        }
-
-        .toggle-icon {
-            font-size: 1.2rem;
-            transition: transform 0.3s ease;
-            color: var(--accent-2);
-        }
-
-        section.collapsed .toggle-icon {
-            transform: rotate(-90deg);
-        }
-
-        section.collapsed .section-content {
-            display: none;
         }
         
         section h3 {
@@ -236,8 +205,9 @@
         .research-item h3,
         .certificate-item h3 {
             color: var(--accent);
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.5rem;
             font-weight: 600;
+            margin-top: 0;
         }
         
         .role-title,
@@ -249,15 +219,24 @@
         }
         
         .company-name,
-        .school-name {
+        .school-name,
+        .location {
             color: var(--muted);
-            font-style: italic;
             font-weight: 500;
             display: block;
             margin-top: 0.3rem;
         }
+
+        .date-range {
+            color: var(--muted);
+            font-size: 0.95rem;
+            display: block;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
         
-        .project-tech {
+        .project-tech,
+        .skills-list {
             color: var(--accent-2);
             font-weight: 600;
             margin-bottom: 0.5rem;
@@ -269,6 +248,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 0.8rem;
+            margin-bottom: 1.5rem;
         }
         
         .skill-tag {
@@ -344,13 +324,7 @@
             color: var(--accent-2);
         }
         
-        .date {
-            color: var(--muted);
-            font-size: 0.9rem;
-            font-weight: 400;
-        }
-        
-        .intro-card {
+        .intro-section {
             background: linear-gradient(135deg, rgba(96, 165, 250, 0.1) 0%, rgba(52, 211, 153, 0.05) 100%);
             padding: 2rem;
             border-radius: 8px;
@@ -358,66 +332,235 @@
             border: 1px solid var(--accent);
         }
 
-        .intro-card h3 {
+        .intro-section h3 {
             margin-top: 0;
         }
 
-        .intro-card p {
+        .intro-section p {
             color: var(--text);
             line-height: 1.8;
             margin-bottom: 1rem;
         }
 
-        .intro-links {
+        .contact-info {
             display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
+            flex-direction: column;
+            gap: 0.8rem;
             margin-top: 1rem;
         }
 
-        .intro-links a {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
+        .contact-info p {
+            margin: 0;
+            color: var(--text);
         }
 
-        .intro-links a:hover {
-            color: var(--accent-2);
-            transform: translateX(4px);
-        }
-
-        /* Contact List Styling */
-        #contact ul {
-            list-style: none;
-            margin-left: 0;
-        }
-
-        #contact li {
-            margin-bottom: 1rem;
-            padding: 0.75rem;
-            background: rgba(96, 165, 250, 0.05);
-            border-left: 3px solid var(--accent-2);
-            border-radius: 4px;
-            transition: all 0.3s ease;
-        }
-
-        #contact li:hover {
-            background: rgba(96, 165, 250, 0.1);
-            border-left-color: var(--accent);
-            transform: translateX(4px);
-        }
-
-        #contact strong {
+        .contact-info strong {
             color: var(--accent);
             font-weight: 600;
+            margin-right: 0.5rem;
         }
 
         .section-content {
             transition: all 0.3s ease;
         }
 
-        @media (max-width: 768px) {
+        /* Responsive design */
+        @media (min-width: 1025px) and (max-width: 1440px) {
+            .container {
+                max-width: 1200px;
+                margin: 2.5rem auto;
+                padding: 0 1.5rem;
+            }
+
+            section {
+                padding: 3rem;
+                margin-bottom: 2.5rem;
+            }
+
+            section h2 {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+                padding-bottom: 1rem;
+            }
+
+            section h3 {
+                font-size: 1.4rem;
+                margin-top: 2rem;
+                margin-bottom: 0.8rem;
+            }
+
+            header {
+                padding: 4rem 2.5rem;
+            }
+
+            header h1 {
+                font-size: 2.8rem;
+                margin-bottom: 0.8rem;
+            }
+
+            header p {
+                font-size: 1.1rem;
+            }
+
+            nav {
+                padding: 2rem;
+            }
+
+            nav a {
+                margin: 0 1.5rem;
+                font-size: 1rem;
+            }
+
+            .experience-item,
+            .project-item,
+            .education-item,
+            .research-item,
+            .certificate-item {
+                padding: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .intro-section {
+                padding: 2.5rem;
+                margin-bottom: 2.5rem;
+            }
+
+            .skill-tag {
+                padding: 0.7rem 1.4rem;
+                font-size: 0.95rem;
+            }
+
+            .project-tech,
+            .skills-list {
+                font-size: 1rem;
+            }
+
+            li {
+                margin-bottom: 0.8rem;
+                font-size: 1.05rem;
+            }
+
+            ul {
+                margin-left: 2.5rem;
+            }
+
+            footer {
+                padding: 3rem 2rem;
+                margin-top: 4rem;
+            }
+        }
+
+        @media (min-width: 1441px) {
+            .container {
+                max-width: 1400px;
+                margin: 3rem auto;
+                padding: 0 2rem;
+            }
+
+            section {
+                padding: 3.5rem;
+                margin-bottom: 3rem;
+                border-radius: 12px;
+            }
+
+            section h2 {
+                font-size: 2.2rem;
+                margin-bottom: 2.5rem;
+                padding-bottom: 1.2rem;
+            }
+
+            section h3 {
+                font-size: 1.5rem;
+                margin-top: 2.5rem;
+                margin-bottom: 1rem;
+            }
+
+            header {
+                padding: 5rem 3rem;
+            }
+
+            header h1 {
+                font-size: 3.2rem;
+                margin-bottom: 1rem;
+            }
+
+            header p {
+                font-size: 1.2rem;
+            }
+
+            nav {
+                padding: 2.5rem 3rem;
+            }
+
+            nav a {
+                margin: 0 2rem;
+                font-size: 1.05rem;
+            }
+
+            .experience-item,
+            .project-item,
+            .education-item,
+            .research-item,
+            .certificate-item {
+                padding: 2.5rem;
+                margin-bottom: 2.5rem;
+                border-left-width: 4px;
+                border-radius: 8px;
+            }
+
+            .intro-section {
+                padding: 3rem;
+                margin-bottom: 3rem;
+                border-radius: 10px;
+            }
+
+            .intro-section p {
+                font-size: 1.1rem;
+                line-height: 1.9;
+            }
+
+            .skill-tag {
+                padding: 0.8rem 1.6rem;
+                font-size: 1rem;
+                border-radius: 6px;
+            }
+
+            .skill-category h4 {
+                font-size: 1.1rem;
+                margin-bottom: 1rem;
+            }
+
+            .project-tech,
+            .skills-list {
+                font-size: 1.05rem;
+                margin-bottom: 0.8rem;
+            }
+
+            li {
+                margin-bottom: 1rem;
+                font-size: 1.1rem;
+            }
+
+            ul {
+                margin-left: 3rem;
+                margin-top: 1rem;
+            }
+
+            .date-range {
+                font-size: 1rem;
+            }
+
+            footer {
+                padding: 4rem 3rem;
+                margin-top: 5rem;
+            }
+
+            footer p {
+                font-size: 1.05rem;
+            }
+        }
+
+        @media (max-width: 767px) {
             header h1 {
                 font-size: 1.8rem;
             }
@@ -443,7 +586,7 @@
                 font-size: 1.4rem;
             }
 
-            .intro-links {
+            .contact-info {
                 flex-direction: column;
             }
         }
@@ -464,6 +607,26 @@
 
         ::-webkit-scrollbar-thumb:hover {
             background: var(--accent-2);
+        }
+
+        /* Print styles for ATS compatibility */
+        @media print {
+            body::before {
+                display: none;
+            }
+
+            section {
+                page-break-inside: avoid;
+                background: white;
+                color: black;
+                border: none;
+                box-shadow: none;
+            }
+
+            a {
+                color: blue;
+                text-decoration: underline;
+            }
         }
     </style>
 </head>
@@ -492,18 +655,18 @@
             
             <!-- Introduction Section -->
             <section id="introduction">
-                <h2><span>Introduction</span><span class="toggle-icon">▼</span></h2>
+                <h2>Introduction</h2>
                 <div class="section-content">
-                    <div class="intro-card">
+                    <div class="intro-section">
                         <h3>Chinnam Tejesh</h3>
                         <p>
-                            Motivated VLSI Frontend Verification Engineer with expertise in design verification, testbench development, and functional validation of digital designs. Proficient in SystemVerilog, UVM, and formal verification methodologies. Passionate about building robust verification frameworks and ensuring high-quality silicon through comprehensive testing strategies.
+                            Motivated VLSI Frontend Verification Engineer with expertise in design verification, testbench development, and functional validation of digital designs. Proficient in SystemVerilog, UVM, and advanced verification methodologies with hands-on experience in formal verification and protocol validation. Passionate about leveraging cutting-edge EDA tools and verification frameworks to ensure design correctness and accelerate time-to-market for complex digital systems.
                         </p>
-                        <div class="intro-links">
-                            <span><strong>Email:</strong> <a href="mailto:tejesh.chinnam@example.com">tejesh.chinnam@example.com</a></span>
-                            <span><strong>GitHub:</strong> <a href="https://github.com/Chinnam-Tejesh" target="_blank">github.com/Chinnam-Tejesh</a></span>
-                            <span><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/chinnam-tejesh" target="_blank">linkedin.com/in/chinnam-tejesh</a></span>
-                            <span><strong>Location:</strong> [Your Location]</span>
+                        <div class="contact-info">
+                            <p><strong>Email:</strong> <a href="mailto:tejesh.chinnam@example.com">tejesh.chinnam@example.com</a></p>
+                            <p><strong>GitHub:</strong> <a href="https://github.com/Chinnam-Tejesh" target="_blank" rel="noopener noreferrer">github.com/Chinnam-Tejesh</a></p>
+                            <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/chinnam-tejesh" target="_blank" rel="noopener noreferrer">linkedin.com/in/chinnam-tejesh</a></p>
+                            <p><strong>Location:</strong> [Your Location]</p>
                         </div>
                     </div>
                 </div>
@@ -511,7 +674,7 @@
 
             <!-- Skills Section -->
             <section id="skills">
-                <h2><span>Technical Skills</span><span class="toggle-icon">▼</span></h2>
+                <h2>Technical Skills</h2>
                 <div class="section-content">
                     
                     <div class="skill-category">
@@ -586,16 +749,16 @@
 
             <!-- Projects Section -->
             <section id="projects">
-                <h2><span>Verification Projects</span><span class="toggle-icon">▼</span></h2>
+                <h2>Verification Projects</h2>
                 <div class="section-content">
                     
                     <div class="project-item">
                         <h3>Design Block/IP Verification</h3>
                         <p class="project-tech">SystemVerilog | UVM | VCS | Coverage Analysis</p>
-                        <p><span class="date">[Start Date] - [End Date]</span></p>
+                        <p class="date-range">Start Date - End Date</p>
                         <ul>
-                            <li>Designed and implemented UVM testbench environment for [Design Block] with functional coverage of [X]%</li>
-                            <li>Created constrained random test generation achieving [X] corner cases identification</li>
+                            <li>Designed and implemented UVM testbench environment for Design Block with functional coverage of X%</li>
+                            <li>Created constrained random test generation achieving X corner cases identification</li>
                             <li>Documented verification methodology, test results, and coverage metrics in comprehensive verification report</li>
                         </ul>
                     </div>
@@ -603,22 +766,22 @@
                     <div class="project-item">
                         <h3>Protocol Verification / Interface Validation</h3>
                         <p class="project-tech">SystemVerilog | Protocol Checkers | Formal Verification | JasperGold</p>
-                        <p><span class="date">[Start Date] - [End Date]</span></p>
+                        <p class="date-range">Start Date - End Date</p>
                         <ul>
-                            <li>Verified [Protocol Name] interface compliance against specification using protocol checkers</li>
-                            <li>Implemented formal property checking for [Critical Property], ensuring correctness</li>
-                            <li>Identified and documented [X] specification violations, contributing to design refinement</li>
+                            <li>Verified Protocol Name interface compliance against specification using protocol checkers</li>
+                            <li>Implemented formal property checking for Critical Property, ensuring correctness</li>
+                            <li>Identified and documented X specification violations, contributing to design refinement</li>
                         </ul>
                     </div>
                     
                     <div class="project-item">
                         <h3>Testbench Development / Framework</h3>
                         <p class="project-tech">SystemVerilog | UVM | Reusable Components | Automation</p>
-                        <p><span class="date">[Start Date] - [End Date]</span></p>
+                        <p class="date-range">Start Date - End Date</p>
                         <ul>
-                            <li>Built scalable, reusable UVM testbench components for [Design Type], enabling faster test development</li>
-                            <li>Automated test execution and regression suite management using [Tool/Script], reducing manual effort</li>
-                            <li>Established coding standards and best practices improving team productivity by [X]%</li>
+                            <li>Built scalable, reusable UVM testbench components for Design Type, enabling faster test development</li>
+                            <li>Automated test execution and regression suite management using Tool/Script, reducing manual effort</li>
+                            <li>Established coding standards and best practices improving team productivity by X%</li>
                         </ul>
                     </div>
                 </div>
@@ -626,40 +789,43 @@
 
             <!-- Experience Section -->
             <section id="experience">
-                <h2><span>Professional Experience</span><span class="toggle-icon">▼</span></h2>
+                <h2>Professional Experience</h2>
                 <div class="section-content">
                     
                     <div class="experience-item">
                         <h3>Senior Verification Engineer</h3>
-                        <span class="company-name">[Company Name]</span>
-                        <p><span class="date">[Start Date] - [End Date] | [Location]</span></p>
+                        <span class="company-name">Company Name</span>
+                        <span class="date-range">Start Date - End Date</span>
+                        <span class="location">Location</span>
                         <ul>
-                            <li>Developed and executed comprehensive verification plans for [Design Block/IP Core] with [X]% code coverage and [Y] bugs identified pre-silicon</li>
-                            <li>Architected modular SystemVerilog/UVM testbenches achieving [Level] of functional coverage</li>
-                            <li>Collaborated with design team to resolve corner cases, improving design quality and reducing verification time by [X]%</li>
+                            <li>Developed and executed comprehensive verification plans for Design Block/IP Core with X% code coverage and Y bugs identified pre-silicon</li>
+                            <li>Architected modular SystemVerilog/UVM testbenches achieving Level of functional coverage</li>
+                            <li>Collaborated with design team to resolve corner cases, improving design quality and reducing verification time by X%</li>
                             <li>Implemented formal verification methods for protocol validation, ensuring RTL compliance to specification</li>
-                            <li>Optimized simulation performance using [Technique/Tool], reducing test execution time by [X]%</li>
+                            <li>Optimized simulation performance using Technique/Tool, reducing test execution time by X%</li>
                         </ul>
                     </div>
 
                     <div class="experience-item">
                         <h3>Verification Engineer</h3>
-                        <span class="company-name">[Company Name]</span>
-                        <p><span class="date">[Start Date] - [End Date] | [Location]</span></p>
+                        <span class="company-name">Company Name</span>
+                        <span class="date-range">Start Date - End Date</span>
+                        <span class="location">Location</span>
                         <ul>
-                            <li>Developed and executed comprehensive verification plans for [Design Block/IP Core] with [X]% code coverage and [Y] bugs identified pre-silicon</li>
-                            <li>Architected modular SystemVerilog/UVM testbenches achieving [Level] of functional coverage</li>
-                            <li>Collaborated with design team to resolve corner cases, improving design quality and reducing verification time by [X]%</li>
+                            <li>Developed and executed comprehensive verification plans for Design Block/IP Core with X% code coverage and Y bugs identified pre-silicon</li>
+                            <li>Architected modular SystemVerilog/UVM testbenches achieving Level of functional coverage</li>
+                            <li>Collaborated with design team to resolve corner cases, improving design quality and reducing verification time by X%</li>
                         </ul>
                     </div>
                     
                     <div class="experience-item">
                         <h3>RTL Verification Intern</h3>
-                        <span class="company-name">[Company Name]</span>
-                        <p><span class="date">[Start Date] - [End Date] | [Location]</span></p>
+                        <span class="company-name">Company Name</span>
+                        <span class="date-range">Start Date - End Date</span>
+                        <span class="location">Location</span>
                         <ul>
-                            <li>Developed testbenches for [Specific Design] using SystemVerilog, achieving [X]% functional coverage</li>
-                            <li>Created test scenarios validating [Protocol/Specification], identifying [X] critical design issues</li>
+                            <li>Developed testbenches for Specific Design using SystemVerilog, achieving X% functional coverage</li>
+                            <li>Created test scenarios validating Protocol/Specification, identifying X critical design issues</li>
                             <li>Participated in verification closure activities including coverage analysis and bug triaging</li>
                         </ul>
                     </div>
@@ -668,27 +834,27 @@
 
             <!-- Education Section -->
             <section id="education">
-                <h2><span>Education & Academics</span><span class="toggle-icon">▼</span></h2>
+                <h2>Education & Academics</h2>
                 <div class="section-content">
                     
                     <div class="education-item">
                         <h3>Master of Technology (M.Tech) in VLSI Design</h3>
-                        <span class="school-name">[University Name]</span>
-                        <p><span class="date">[Graduation Date] | CGPA: [X.XX]/10</span></p>
+                        <span class="school-name">University Name</span>
+                        <span class="date-range">Graduation Date | CGPA: X.XX/10</span>
                         <ul>
                             <li>Specialized in Digital VLSI Design and Verification</li>
                             <li>Key Coursework: Advanced Digital Design, Verification Methodologies, ASIC Design Flow, Formal Methods</li>
-                            <li>Thesis: [Thesis Title] - Focused on [Key Topic]</li>
+                            <li>Thesis: Thesis Title - Focused on Key Topic</li>
                         </ul>
                     </div>
 
                     <div class="education-item">
                         <h3>Bachelor of Technology (B.Tech) in Electronics & Communication Engineering</h3>
-                        <span class="school-name">[University Name]</span>
-                        <p><span class="date">[Graduation Date] | CGPA: [X.XX]/10</span></p>
+                        <span class="school-name">University Name</span>
+                        <span class="date-range">Graduation Date | CGPA: X.XX/10</span>
                         <ul>
                             <li>Key Coursework: Digital Design, Logic Systems, Microprocessors, Embedded Systems</li>
-                            <li>Project: [Project Name] - [Brief Description]</li>
+                            <li>Project: Project Name - Brief Description</li>
                         </ul>
                     </div>
                 </div>
@@ -696,29 +862,29 @@
 
             <!-- Research & Publications Section -->
             <section id="research">
-                <h2><span>Research & Publications</span><span class="toggle-icon">▼</span></h2>
+                <h2>Research & Publications</h2>
                 <div class="section-content">
                     
                     <div class="research-item">
-                        <h3>Published Paper: [Paper Title]</h3>
-                        <p class="project-tech">Conference/Journal | [Conference/Journal Name]</p>
-                        <p><span class="date">[Publication Date]</span></p>
+                        <h3>Published Paper: Paper Title</h3>
+                        <p class="project-tech">Conference/Journal | Conference/Journal Name</p>
+                        <span class="date-range">Publication Date</span>
                         <ul>
-                            <li>Authors: [Your Name], [Co-authors]</li>
-                            <li>Abstract: [Brief description of the research]</li>
-                            <li>Key Contributions: [Main contributions of the work]</li>
-                            <li><a href="#" target="_blank">View Publication</a></li>
+                            <li>Authors: Your Name, Co-authors</li>
+                            <li>Abstract: Brief description of the research</li>
+                            <li>Key Contributions: Main contributions of the work</li>
+                            <li><a href="#" target="_blank" rel="noopener noreferrer">View Publication</a></li>
                         </ul>
                     </div>
 
                     <div class="research-item">
-                        <h3>Research Project: [Project Name]</h3>
-                        <p class="project-tech">Research Area | [Relevant Area]</p>
-                        <p><span class="date">[Start Date] - [End Date]</span></p>
+                        <h3>Research Project: Project Name</h3>
+                        <p class="project-tech">Research Area | Relevant Area</p>
+                        <span class="date-range">Start Date - End Date</span>
                         <ul>
-                            <li>Objective: [Research objective]</li>
-                            <li>Methodology: [Research methodology used]</li>
-                            <li>Outcomes: [Key findings and outcomes]</li>
+                            <li>Objective: Research objective</li>
+                            <li>Methodology: Research methodology used</li>
+                            <li>Outcomes: Key findings and outcomes</li>
                         </ul>
                     </div>
                 </div>
@@ -726,35 +892,35 @@
 
             <!-- Certificates & Trainings Section -->
             <section id="certificates">
-                <h2><span>Certificates & Trainings</span><span class="toggle-icon">▼</span></h2>
+                <h2>Certificates & Trainings</h2>
                 <div class="section-content">
                     
                     <div class="certificate-item">
                         <h3>UVM Methodology Training</h3>
-                        <p class="project-tech">Certification | [Training Provider]</p>
-                        <p><span class="date">[Date Completed]</span></p>
+                        <p class="project-tech">Certification | Training Provider</p>
+                        <span class="date-range">Date Completed</span>
                         <ul>
                             <li>Comprehensive training in UVM 1.2 methodology and best practices</li>
                             <li>Focus on testbench architecture, sequencer design, and coverage metrics</li>
-                            <li><a href="#" target="_blank">View Certificate</a></li>
+                            <li><a href="#" target="_blank" rel="noopener noreferrer">View Certificate</a></li>
                         </ul>
                     </div>
 
                     <div class="certificate-item">
                         <h3>Formal Verification Course</h3>
-                        <p class="project-tech">Course | [Training Provider]</p>
-                        <p><span class="date">[Date Completed]</span></p>
+                        <p class="project-tech">Course | Training Provider</p>
+                        <span class="date-range">Date Completed</span>
                         <ul>
                             <li>In-depth training on formal verification techniques and tools</li>
                             <li>Hands-on experience with property checking and proof strategies</li>
-                            <li><a href="#" target="_blank">View Certificate</a></li>
+                            <li><a href="#" target="_blank" rel="noopener noreferrer">View Certificate</a></li>
                         </ul>
                     </div>
 
                     <div class="certificate-item">
                         <h3>Advanced SystemVerilog Workshop</h3>
-                        <p class="project-tech">Workshop | [Training Provider]</p>
-                        <p><span class="date">[Date Completed]</span></p>
+                        <p class="project-tech">Workshop | Training Provider</p>
+                        <span class="date-range">Date Completed</span>
                         <ul>
                             <li>Advanced SystemVerilog programming and debugging techniques</li>
                             <li>Deep dive into assertions, coverage, and randomization</li>
@@ -765,9 +931,9 @@
 
             <!-- Interests Section -->
             <section id="interests">
-                <h2><span>Interests & Hobbies</span><span class="toggle-icon">▼</span></h2>
+                <h2>Interests & Hobbies</h2>
                 <div class="section-content">
-                    <div class="intro-card">
+                    <div class="intro-section">
                         <ul>
                             <li><strong>VLSI & Hardware Design:</strong> Passionate about RTL design, verification methodologies, and formal verification techniques</li>
                             <li><strong>Open Source Contributions:</strong> Active contributor to VLSI and EDA tool projects on GitHub</li>
@@ -784,18 +950,8 @@
         
         <!-- Footer -->
         <footer>
-            <p>&copy; 2026. All rights reserved. | <a href="#top">Back to Top</a></p>
+            <p>&copy; 2026. All rights reserved. | <a href="#introduction">Back to Top</a></p>
         </footer>
     </div>
-
-    <script>
-        // Expandable sections functionality
-        document.querySelectorAll('section h2').forEach(header => {
-            header.addEventListener('click', function() {
-                const section = this.closest('section');
-                section.classList.toggle('collapsed');
-            });
-        });
-    </script>
 </body>
 </html>
